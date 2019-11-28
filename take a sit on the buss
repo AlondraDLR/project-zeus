@@ -1,0 +1,100 @@
+#include <stdio.h>
+
+int ver();
+int compra();
+int cancelar();
+int restablecer ();
+int as [41]= {0};
+
+int ver ()
+{
+    int a=0;
+    for (int i=0;i<42;i++)
+        {
+        a=i+1;
+        printf ("Asiento %d: |%d\n",a,as [i]);
+        }
+        return 0;
+}
+
+int compra ()
+{
+    int b;
+ printf ("¿Que asiento desea comprar?\n");
+        scanf ("%d",&b);
+        if (as[b]==1)
+         {
+             printf ("Este asiento esta ocupado\n");
+            }
+            else
+            {
+            b=b-1;
+            as[b]=1;
+            }
+}
+
+int cancelar ()
+{
+    int b;
+    printf ("¿Que asiento desea cancelar?\n");
+        scanf ("%d",&b);
+        b=b-1;
+        as[b]=0;
+}
+
+int restablecer ()
+{
+    int i;
+    for (i=0;i<43;i++)
+        {
+        as[i]=0;
+        }
+}
+
+int main()
+{
+    int a=0,op,b,i=0,continuar;
+    float total=0,c=0;
+    
+    do 
+    {
+    printf ("1. Visualizar asientos disponibles.\n2. Comprar asiento.\n3. Cancelar compra de asiento.\n4. Realizar Corte.\n5. Restablecer asientos.\n6. Salir.");
+    scanf ("%d",&op);
+    
+    switch (op)
+    {
+        case 1:
+        ver ();
+        break;
+        
+        
+        case 2:
+        compra();
+        c++;
+        break;
+        
+        case 3:
+        cancelar();
+        c--;
+        break;
+        
+        case 4:
+        total=789.5*c;
+        printf ("El corte es de %1f\n",total);
+        break;
+        
+        case 5:
+        restablecer();
+        break;
+        
+        case 6:
+        return 0;
+        break;
+        
+    }
+    printf ("si quieres continuar presione 0\n");
+    scanf ("%d",&continuar);
+    }
+    while (continuar==0);
+    return 0;
+}
